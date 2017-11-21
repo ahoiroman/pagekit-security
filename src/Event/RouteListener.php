@@ -5,6 +5,7 @@ namespace Spqr\Security\Event;
 use Pagekit\Application as App;
 use Pagekit\Event\EventSubscriberInterface;
 use Pagekit\Kernel\Exception\ForbiddenException;
+use Pagekit\Kernel\Exception\UnauthorizedException;
 use Pagekit\Kernel\Exception\NotFoundException;
 use Spqr\Security\Model\Ban;
 use Spqr\Security\Helper\EntryHelper;
@@ -67,6 +68,12 @@ class RouteListener implements EventSubscriberInterface
         if ($config['jails']['forbidden']['enabled'] == true) {
             if ($exception instanceof ForbiddenException) {
                 $helper->createEntry($ip, $referrer, 'forbidden');
+            }
+        }
+    
+        if ($config['jails']['unauthorized']['enabled'] == true) {
+            if ($exception instanceof UnauthorizedException) {
+                $helper->createEntry($ip, $referrer, 'unauthorized');
             }
         }
     }

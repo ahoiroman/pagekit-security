@@ -33,6 +33,11 @@ class EntryListener implements EventSubscriberInterface
                 $jail   = 'forbidden';
                 $reason = __('Entered too many forbidden URLs');
                 break;
+            case "unauthorized":
+                $limit  = $config['jails']['unauthorized']['attempts'];
+                $jail   = 'unauthorized';
+                $reason = __('Entered too many unauthorized URLs');
+                break;
             case "honeypot":
                 $limit  = $config['jails']['honeypot']['attempts'];
                 $jail   = 'honeypot';

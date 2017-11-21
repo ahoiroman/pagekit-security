@@ -74,15 +74,19 @@ return [
     'config' => [
         'items_per_page' => 20,
         'jails'          => [
-            'login'     => [
+            'login'        => [
                 'enabled'  => true,
                 'attempts' => 3,
             ],
-            'forbidden' => [
+            'unauthorized' => [
                 'enabled'  => false,
                 'attempts' => 3,
             ],
-            'honeypot'  => [
+            'forbidden'    => [
+                'enabled'  => false,
+                'attempts' => 3,
+            ],
+            'honeypot'     => [
                 'enabled'   => true,
                 'attempts'  => 3,
                 'honeypots' => [
@@ -92,7 +96,7 @@ return [
                     'index.php?option=',
                 ],
             ],
-            'spam'      => [
+            'spam'         => [
                 'enabled'  => true,
                 'attempts' => 3,
             ],

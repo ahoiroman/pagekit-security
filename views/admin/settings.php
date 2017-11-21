@@ -69,6 +69,30 @@
 						</div>
 					</div>
 					<div class="uk-form-row">
+						<label for="form-unauthorizedjail"
+						       class="uk-form-label">{{ 'Enable Unauthorized
+							Jail' | trans
+							}}</label>
+						<div class="uk-form-controls uk-form-controls-text">
+							<input id="form-unauthorizedjail" type="checkbox"
+							       v-model="config.jails.unauthorized.enabled">
+						</div>
+					</div>
+					<div class="uk-form-row"
+					     v-if="config.jails.unauthorized.enabled">
+						<label for="form-unauthorizedattempts"
+						       class="uk-form-label">{{ 'Number of attempts' | trans
+							}}</label>
+						<div class="uk-form-controls uk-form-controls-text">
+							<p class="uk-form-controls-condensed">
+								<input id="form-unauthorizedattempts" type="number"
+								       class="uk-form-width-large"
+								       v-model="config.jails.unauthorized.attempts"
+								       min="0" number>
+							</p>
+						</div>
+					</div>
+					<div class="uk-form-row">
 						<label for="form-forbiddenjail"
 						       class="uk-form-label">{{ 'Enable Forbidden Jail' | trans
 							}}</label>
