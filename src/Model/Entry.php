@@ -10,31 +10,31 @@ use Pagekit\System\Model\DataModelTrait;
  */
 class Entry implements \JsonSerializable
 {
-	use ModelTrait, DataModelTrait;
-	
-	/** @Column(type="integer") @Id */
-	public $id;
-	
-	/** @Column(type="string") */
-	public $ip;
-	
-	/** @Column(type="string") */
-	public $event;
-	
-	/** @Column(type="string") */
-	public $referrer;
-	
-	/** @Column(type="datetime") */
-	public $date;
-	
-	/** @BelongsTo(targetEntity="Ban", keyFrom="ip") */
-	public $ban;
-	
-	/**
-	 * {@inheritdoc}
-	 */
-	public function jsonSerialize()
-	{
-		return $this->toArray();
-	}
+    use ModelTrait, DataModelTrait;
+    
+    /** @Column(type="integer") @Id */
+    public $id;
+    
+    /** @Column(type="string") */
+    public $ip;
+    
+    /** @Column(type="string") */
+    public $event;
+    
+    /** @Column(type="string") */
+    public $referrer;
+    
+    /** @Column(type="datetime") */
+    public $date;
+    
+    /** @BelongsTo(targetEntity="Ban", keyFrom="ip") */
+    public $ban;
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function jsonSerialize()
+    {
+        return $this->toArray();
+    }
 }
